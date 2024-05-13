@@ -1,22 +1,18 @@
 spring:
-  datasource:
-    driver-class-name: org.h2.Driver
 
   application:
     name: scg-sample
 
-  h2:
-    console:
-      enabled: true
+  data:
+    redis:
+      host: localhost
+      port: 6379
 
-  r2dbc:
-    url: r2dbc:h2:mem:///test
-    username: sa
+  cloud:
+    gateway:
+      redis-route-definition-repository:
+        enabled: true
 
-  jpa:
-    hibernate:
-      ddl-auto: update
-    generate-ddl: true
-    properties:
-      hibernate:
-        show_sql: true
+logging:
+  level:
+    root: debug
